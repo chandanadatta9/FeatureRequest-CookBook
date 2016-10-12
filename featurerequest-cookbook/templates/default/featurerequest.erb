@@ -1,6 +1,6 @@
 server{
 	location / {
-		proxy_pass <%= node['opsworks']['layers']['featurerequest-app']["python-app#{node['opsworks']['instance']['hostname'][/\d+/].to_i}"]['private_ip'] %>;
+		proxy_pass <%= node["opsworks"]["layers"]["featurerequest-app"]["instances"]["python-app#{node["opsworks"]["instance"]["hostname"][/\d+/].to_i}"]["private_ip"] %>;
 		proxy_set_header Host $host;
 		proxy_set_header X-Real-IP $remote_addr;
 	}
