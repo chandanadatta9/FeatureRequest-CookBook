@@ -24,4 +24,3 @@ bash "create_venv" do
 		virtualenv env
 	EOL
 end
-end
