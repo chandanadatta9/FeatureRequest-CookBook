@@ -20,7 +20,7 @@ end
 bash "create_venv" do
 	user 'root'
 	cwd '/home/www'
-	code<<-EOL
+	code <<-EOL
 		virtualenv env
 	EOL
 end
