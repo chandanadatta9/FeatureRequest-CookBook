@@ -1,9 +1,3 @@
-include_recipe 'featurerequest-cookbook::appconfig'
-directory '/home/www' do
-	user 'root'
-	recursive true
-	action :create
-end
 directory "/tmp/featurerequest" do
 	recursive true
 	action :delete
@@ -17,7 +11,6 @@ bash "get_code" do
 	user "root"
 	cwd '/home/www'
 	code <<-EOL
-		virtualenv env
 		source env/bin/activate
 		cp -r /tmp/featurerequest/* .
 		cd featurerequest/

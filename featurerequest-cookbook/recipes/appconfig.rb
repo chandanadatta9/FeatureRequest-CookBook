@@ -11,3 +11,17 @@ execute 'virtualenvinstall' do
 	action :run
 end
 
+directory '/home/www' do
+	user 'root'
+	recursive true
+	action :create
+end
+
+bash "create_venv" do
+	user 'root'
+	cwd '/home/www'
+	code<<-EOL
+		virtualenv env
+	EOL
+end
+end
