@@ -7,7 +7,7 @@ git '/tmp/featurerequest' do
 	revision 'master'
 	action :sync
 end
-serverIP = search("aws_opsworks_instace","self:true").first
+serverIP = search("aws_opsworks_instance","self:true").first
 bash "get_code" do
 	user "root"
 	cwd '/home/www'
