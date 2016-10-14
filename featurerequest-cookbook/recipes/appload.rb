@@ -13,8 +13,8 @@ bash "get_code" do
 	cwd '/home/www'
 	code <<-EOL
 		source env/bin/activate
-		cp -r /tmp/featurerequest/* .
 		cd featurerequest/
+		cp -r /tmp/featurerequest/* .
 		pip install -r requirements.txt
 		pip install gunicorn
 		export DATABASE_HOST="#{node['DATABASE_HOST']}"

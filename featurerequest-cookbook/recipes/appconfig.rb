@@ -11,7 +11,7 @@ execute 'virtualenvinstall' do
 	action :run
 end
 
-directory '/home/www' do
+directory '/home/www/featurerequest' do
 	user 'root'
 	recursive true
 	action :create

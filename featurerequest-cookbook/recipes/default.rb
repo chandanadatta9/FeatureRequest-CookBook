@@ -9,7 +9,7 @@ webinstance = search("aws_opsworks_instance","self:true").first
 appinstance = search("aws_opsworks_instance","hostname:python-app#{webinstance["hostname"][/\d+/].to_i}").first
 template "/etc/nginx/sites-available/featurerequest" do
 	source 'featurerequest.erb'
-	variables = (
+	variables(
 		:app_privateip => appinstance["private_ip"]
 		)
 end
