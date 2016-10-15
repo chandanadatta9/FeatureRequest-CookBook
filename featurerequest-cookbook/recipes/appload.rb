@@ -11,7 +11,8 @@ serverIP = search("aws_opsworks_instance","self:true").first
 bash "get_code" do
 	user "root"
 	cwd '/home/www'
-
+	timeout 60
+	returns [0, 2]
 	code <<-EOL
 		source env/bin/activate
 		cd featurerequest/
@@ -24,5 +25,4 @@ bash "get_code" do
 		export DATABASE_PRODUCTION_NAME="#{node['DATABASE_NAME']}"
 		gunicorn run_production:app --reload -b #{serverIP["private_ip"]}:8000
 	EOL
-	not_if :timeout => 60
 end
