@@ -3,5 +3,6 @@ package 'nginx' do
 end
 
 service 'nginx' do
+	supports :restart => true, :reload => true
 	action [:enable, :start]
 end

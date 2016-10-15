@@ -17,3 +17,7 @@ end
 link '/etc/nginx/sites-enabled/featurerequest' do
 	to '/etc/nginx/sites-available/featurerequest'
 end
+
+service 'nginx' do
+	action [:start, :restart]
+end
