@@ -12,7 +12,7 @@ bash "get_code" do
 	user "root"
 	cwd '/home/www'
 	timeout 60
-	returns [0, 2]
+	returns [0, 1]
 	code <<-EOL
 		source env/bin/activate
 		cd featurerequest/
