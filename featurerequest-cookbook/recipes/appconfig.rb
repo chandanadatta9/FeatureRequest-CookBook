@@ -25,7 +25,7 @@ bash "create_venv" do
 	EOL
 end
 
-appinstance = search("aws_opsworks_insatnce","self:true").first
+appinstance = search("aws_opsworks_instance","self:true").first
 template "/etc/init/featurerequest.conf" do
 	source 'featurerequest.conf.erb'
 	variables(
