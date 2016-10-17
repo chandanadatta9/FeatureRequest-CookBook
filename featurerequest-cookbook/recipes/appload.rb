@@ -11,7 +11,7 @@ serverIP = search("aws_opsworks_instance","self:true").first
 bash "get_code" do
 	user "root"
 	cwd '/home/www'
-	timeout 60
+	timeout 300
 	returns [0, 1]
 	code <<-EOL
 		source env/bin/activate
