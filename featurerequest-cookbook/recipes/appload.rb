@@ -23,6 +23,11 @@ bash "get_code" do
 		export DATABASE_USER="#{node['DATABASE_USER']}"
 		export DATABASE_PASSWORD="#{node['DATABASE_PASSWORD']}"
 		export DATABASE_PRODUCTION_NAME="#{node['DATABASE_NAME']}"
-		gunicorn run_production:app --reload -b #{serverIP["private_ip"]}:8000
 	EOL
+end
+
+service 'featurerequest' do
+	provider Chef::Provider::Service::Upstart
+	supports :status => true
+	action [:start, :restart]
 end
