@@ -17,11 +17,6 @@ directory '/home/www/featurerequest' do
 	action :create
 end
 
-file '/etc/init/featurerequest' do
-	action :delete
-	only_if { File.exist? '/etc/init/featurerequest'}
-end
-
 bash "create_venv" do
 	user 'root'
 	cwd '/home/www'
