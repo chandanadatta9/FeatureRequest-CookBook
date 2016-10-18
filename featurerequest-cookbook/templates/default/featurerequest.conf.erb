@@ -9,9 +9,9 @@ setgid root
 chdir /home/www/featurerequest
 
 script
-		export DATABASE_PRODUCTION_NAME=<% @DATABASENAME %>
-        export DATABASE_USER=<% @DATABASEUSER %>
-        export DATABASE_PASSWORD=<% @DATABASEPASSWORD %>
-        export DATABASE_HOST=<% @DATABASEHOST %>
+		export DATABASE_PRODUCTION_NAME=<%= @DATABASENAME %>
+        export DATABASE_USER=<%= @DATABASEUSER %>
+        export DATABASE_PASSWORD=<%= @DATABASEPASSWORD %>
+        export DATABASE_HOST=<%= @DATABASEHOST %>
         exec /home/www/env/bin/gunicorn run_production:app --reload -b <%= @app_privateip %>:8000
 end script
